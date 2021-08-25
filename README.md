@@ -6,7 +6,7 @@ UdacityDevOps-HighAvailabilityApp is an application project for the Udacity Clou
 
 ### Install AWS CLI
 #### Add the following text to the config file
-File: C:\Users\%userprofile%\.aws\config
+File: C:\Users\%userprofile%\\.aws\config
 ``` 
 [default]
 region = us-east-1
@@ -16,7 +16,7 @@ region = us-east-1
 
 ### Setup AWS Credentials 
 #### Add your AWS Access Key, Secret Key, and Session Token in place of the values in quotes below to the file
-File: C:\Users\%userprofile%\.aws\credentials 
+File: C:\Users\%userprofile%\\.aws\credentials 
 ```
 [default]
 aws_access_key_id = "AccessKey"
