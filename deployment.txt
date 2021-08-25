@@ -1,2 +1,8 @@
 ##Deployment (Create-Stack)
  aws cloudformation create-stack --stack-name projectHA --region us-east-1 --template-body file://project.yml --parameters file://project-parameters.json
+
+##Deployment (Update-Stack)
+aws cloudformation update-stack --stack-name projectHA --region us-east-1 --template-body file://project.yml --parameters file://project-parameters.json
+
+##Cleanup (Delete-Stack)
+aws cloudformation delete-stack --stack-name projectHA --region us-east-1
