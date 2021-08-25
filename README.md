@@ -23,11 +23,6 @@ aws_access_key_id = "AccessKey"
 aws_secret_access_key = "SecretKey"
 aws_session_token = "SessionToken"
 ```
-
-```bash
-pip install foobar
-```
-
 ## Usage
 Run the Create Stack (create.bat) CloudFormation Template to initially create the template in the AWS environment specified above. Run the Update Stack (update.bat) CloudFormation template to update the AWS CloudFormation stack if it's already created.
 
