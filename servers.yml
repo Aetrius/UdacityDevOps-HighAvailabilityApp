@@ -56,7 +56,7 @@ Resources:
           aws s3 cp s3://udacitydevops-ha01/udacity.zip .
           unzip -o udacity.zip       
       ImageId: ami-0133407e358cc1af0
-      KeyName: N2WSEC2KeyPair
+      KeyName: 
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: t3.medium
