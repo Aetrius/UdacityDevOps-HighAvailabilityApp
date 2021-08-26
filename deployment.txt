@@ -1,8 +1,27 @@
+##Installation
+Install PowerShell CLI
+PS > Install-Module -Name AWSPowerShell
+PS > Install-Module -Name AWS.Tools.Installer
+PS > Install-AWSToolsModule AWS.Tools.EC2,AWS.Tools.S3 -CleanUp
+PS > Initialize-AWSDefaultConfiguration -ProfileName default -Region us-east-1
+
+
+##Setup Keypair
+PS > $keypair = New-EC2KeyPair -KeyName N2WSEC2KeyPair
+PS > $keypair.KeyMaterial | Out-File -Encoding ascii C:\Development\keypair\N2WSEC2KeyPair.pem
+
+##Setup S3 Bucket
+aws s3 mb s3://udacitydevops-ha01
+aws s3 cp C:\\Development\\UdacityDevOps-HighAvailabilityApp\\udacity.zip s3://udacitydevops-ha01
+
 ##Deployment (Create-Stack)
- aws cloudformation create-stack --stack-name projectHA --region us-east-1 --template-body file://project.yml --parameters file://project-parameters.json
+aws cloudformation create-stack --stack-name projectHANetwork --region us-east-1 --template-body file://network.yml --parameters file://network-parameters.json
+aws cloudformation create-stack --stack-name projectHAServers --region us-east-1 --template-body file://servers.yml --parameters file://servers-parameters.json --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 
 ##Deployment (Update-Stack)
-aws cloudformation update-stack --stack-name projectHA --region us-east-1 --template-body file://project.yml --parameters file://project-parameters.json
+aws cloudformation update-stack --stack-name projectHANetwork --region us-east-1 --template-body file://project.yml --parameters file://project-parameters.json
+aws cloudformation update-stack --stack-name projectHAServers --region us-east-1 --template-body file://servers.yml --parameters file://servers-parameters.json --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM"
 
 ##Cleanup (Delete-Stack)
-aws cloudformation delete-stack --stack-name projectHA --region us-east-1
+aws cloudformation delete-stack --stack-name projectHANetwork --region us-east-1
+aws cloudformation delete-stack --stack-name projectHAServers --region us-east-1
